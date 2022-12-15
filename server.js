@@ -3,9 +3,10 @@ const bodyParser = require('body-parser')
 const { urlencoded } = require('express')
 const calculate = require('../backend/index')
 const path = require('path')
-
+const cors = require('cors')
 const app = express()
 
+app.use(cors( { origin: ['http://localhost:3050', 'http://localhost:3000'] } ))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
@@ -31,7 +32,7 @@ app.get('/download', (req, res) => {
     })
 })
 
-const PORT = 8080
+const PORT = process.env.PORT || 8080
 app.listen(PORT, () => {
     console.log('Server Running!')
 })
