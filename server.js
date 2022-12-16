@@ -5,8 +5,9 @@ const calculate = require('../backend/index')
 const path = require('path')
 const cors = require('cors')
 const app = express()
+const fs = require('fs')
 
-app.use(cors( { origin: ['http://localhost:3050', 'http://localhost:3000'] } ))
+app.use(cors( { origin: process.env.baseURL } ))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
@@ -24,12 +25,19 @@ app.post('/', (req, res) => {
 
 app.get('/download', (req, res) => {
     const file = path.join(__dirname, './Contabilidades.xlsx')
-
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    
     res.download(file, (err) => {
         if(err) {
             console.log(err)
         }
     })
+    
+    sleep(100).then(() => {
+        fs.unlink(file, () => {})
+    })
+
+
 })
 
 const PORT = process.env.PORT || 8080
