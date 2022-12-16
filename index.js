@@ -45,7 +45,5 @@ module.exports = (currentValue, monthlyInvestment, monthlyIncome, monthlyTime) =
 
     ws.opts.sheetFormat.baseColWidth = 30
     ws.opts.sheetFormat.defaultRowHeight = 25
-    console.log('ola')
     wb.write('Contabilidades.xlsx')
-    console.log('ola')
 }

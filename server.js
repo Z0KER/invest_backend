@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 
 app.post('/', (req, res) => {
     const { currentValue, monthlyInvestment, monthlyIncome, monthlyTime } = req.body
-
+    console.log('ola')
     calculate(Number(currentValue), Number(monthlyInvestment), Number(monthlyIncome), Number(monthlyTime))
 })
 
@@ -32,7 +32,7 @@ app.get('/download', (req, res) => {
     })
     
     sleep(100).then(() => {
-        fs.unlink(file, () => {})
+        fs.unlink('Contabilidades.xlsx', () => {})
     })
 
 
