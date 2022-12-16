@@ -18,8 +18,8 @@ app.use((req, res, next) => {
 
 app.post('/', (req, res) => {
     const { currentValue, monthlyInvestment, monthlyIncome, monthlyTime } = req.body
-    console.log('ola')
     calculate(Number(currentValue), Number(monthlyInvestment), Number(monthlyIncome), Number(monthlyTime))
+    return
 })
 
 app.get('/download', (req, res) => {
