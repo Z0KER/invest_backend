@@ -46,5 +46,5 @@ module.exports = (currentValue, monthlyInvestment, monthlyIncome, monthlyTime) =
     ws.opts.sheetFormat.baseColWidth = 30
     ws.opts.sheetFormat.defaultRowHeight = 25
 
-    wb.write('./Contabilidades.xlsx')
+    wb.write('Contabilidades.xlsx')
 }
