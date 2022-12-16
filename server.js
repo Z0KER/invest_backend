@@ -27,7 +27,7 @@ app.get('/download', (req, res) => {
     const file = path.join(__dirname, './Contabilidades.xlsx')
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-    res.download(Contabilidades.xlsx, (err) => {
+    res.download('Contabilidades.xlsx', (err) => {
         if(err) {
             console.log(err)
         }
