@@ -2,7 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const { urlencoded } = require('express')
 const calculate = require('./index')
-const path = require('path')
 const cors = require('cors')
 const app = express()
 const fs = require('fs')
@@ -24,7 +23,6 @@ app.post('/', (req, res) => {
 })
 
 app.get('/download', (req, res) => {
-    const file = path.join(__dirname, './Contabilidades.xlsx')
     const sleep = ms => new Promise(r => setTimeout(r, ms));
 
     res.download('Contabilidades.xlsx', (err) => {
@@ -33,9 +31,9 @@ app.get('/download', (req, res) => {
         }
     })
     
-    /*sleep(100).then(() => {
+    sleep(100).then(() => {
         fs.unlink(file, () => {})
-    })*/
+    })
 
 
 })
