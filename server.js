@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const { urlencoded } = require('express')
-const calculate = require('../backend/index')
+const calculate = require('./index')
 const path = require('path')
 const cors = require('cors')
 const app = express()
