@@ -33,7 +33,7 @@ app.get('/download', (req, res) => {
         }
     })
     
-    sleep(5000).then(() => {
+    sleep(100).then(() => {
         fs.unlink(file, () => {})
     })
 
