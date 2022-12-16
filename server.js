@@ -6,7 +6,7 @@ const cors = require('cors')
 const app = express()
 const fs = require('fs')
 
-app.use(cors( { origin: process.env.baseURL } ))
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
